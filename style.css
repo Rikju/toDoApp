@@ -52,7 +52,11 @@
 }
 
 
-.filtered-tasks-one button, .filtered-tasks-two button, .filtered-tasks-three button {
+.filtered-tasks-one .delete-button, .filtered-tasks-two .delete-button, .filtered-tasks-three .delete-button {
+    display: none;
+}
+
+.filtered-tasks-one .edit-button, .filtered-tasks-two .edit-button, .filtered-tasks-three .edit-button {
     display: none;
 }
 
@@ -62,4 +66,9 @@
     font-style: italic;
 }
 
+.summary-center {
+    margin-top: 1rem;
+    color: #0D6EFD;
+    text-align: left;
+}
 

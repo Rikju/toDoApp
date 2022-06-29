@@ -175,19 +175,23 @@ const counter = function (tasksList){
 
     if (leftTask.length === 0){
         let paragraph = document.createElement("p")
-        paragraph.textContent = `Zbývá: ${leftTask.length} úkolů (celkový počet: ${tasks.length} / max.: 30 úkolů)`
+        paragraph.textContent = `Zbývá: ${leftTask.length} úkolů (celkový počet: ${tasks.length} / max.: 30)`
+        paragraph.classList.add("summary-center")
         document.querySelector(".summary").appendChild(paragraph)
     } else if (leftTask.length === 1){
         let paragraph = document.createElement("p")
-        paragraph.textContent = `Zbývá: ${leftTask.length} úkol (celkový počet: ${tasks.length} / max.: 30 úkolů)`
+        paragraph.textContent = `Zbývá: ${leftTask.length} úkol (celkový počet: ${tasks.length} / max.: 30)`
+        paragraph.classList.add("summary-center")
         document.querySelector(".summary").appendChild(paragraph)
     } else if (leftTask.length > 1 && leftTask.length < 5){
         let paragraph = document.createElement("p")
-        paragraph.textContent = `Zbývá: ${leftTask.length} úkoly (celkový počet: ${tasks.length} / max.: 30 úkolů)`
+        paragraph.textContent = `Zbývá: ${leftTask.length} úkoly (celkový počet: ${tasks.length} / max.: 30)`
+        paragraph.classList.add("summary-center")
         document.querySelector(".summary").appendChild(paragraph)
     } else {
         let paragraph = document.createElement("p")
-        paragraph.textContent = `Zbývá: ${leftTask.length} úkolů (celkový počet: ${tasks.length} / max.: 30 úkolů)`
+        paragraph.textContent = `Zbývá: ${leftTask.length} úkolů (celkový počet: ${tasks.length} / max.: 30)`
+        paragraph.classList.add("summary-center")
         document.querySelector(".summary").appendChild(paragraph)
     }
 }
