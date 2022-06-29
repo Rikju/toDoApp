@@ -30,33 +30,41 @@ const saveTasks = function (oneTask){
 
 
 const generateHTMLStructure = function (oneTask){
-    const newDiv = document.createElement("div")
-    const newSpan = document.createElement("span")
-    const newButton = document.createElement("button")
+    const container = document.createElement("div")
+    container.classList.add("html-structure")
+    const checkboxTaskNoteDiv = document.createElement("div")
+    const deleteEditButtonDiv = document.createElement("div")
+    const taskSpan = document.createElement("span")
+    const noteSpan = document.createElement("span")
+    const deleteButton = document.createElement("button")
+    deleteButton.classList.add("delete-button")
+    const editButton = document.createElement("button")
+    editButton.classList.add("edit-button")
 
     document.querySelector(".custom-heading").innerHTML = ""
-
     clearTaskInput()
 
     //nastavení mazacího tlačítka
-    newButton.textContent = "Vymazat"
-    newDiv.appendChild(newButton)
+    deleteButton.textContent = "Vymazat"
+    deleteEditButtonDiv.appendChild(deleteButton)
 
-    newButton.addEventListener("click",function (){
-       removeTask(tasks, oneTask.id)
-       saveTasks(tasks)
-       toListAgain()
+    deleteButton.addEventListener("click",function (){
+        removeTask(tasks, oneTask.id)
+        saveTasks(tasks)
+        toListAgain()
         if (tasks.length === 0){
             let paragraph = document.createElement("p")
             paragraph.textContent = "Databáze úkolů je prázdná. Vážně nemáš co na práci?"
             document.querySelector(".custom-heading").appendChild(paragraph)
         }
-       counter(tasks)
+        counter(tasks)
     })
 
-    let orderTask = numberForTask(tasks, oneTask.id)
-    newSpan.textContent = `${orderTask + 1}. ${oneTask.task}`
-    newDiv.appendChild(newSpan)
+    //nastavení editovacího tlačítka
+    editButton.textContent = "Editovat"
+    deleteEditButtonDiv.appendChild(editButton)
+
+
 
     // vytvoří clon checkboxu a přidá k jednotlivým úkolům
     const node = document.getElementById("true-false");
@@ -64,29 +72,43 @@ const generateHTMLStructure = function (oneTask){
     clone.addEventListener("click",function (){
         if (clone.checked){
             oneTask.completion = true
-            newSpan.style.color = "green"
+            taskSpan.style.color = "green"
             saveTasks(tasks)
             counter(tasks)
         } else {
             oneTask.completion = false
-            newSpan.style.color = "red"
+            taskSpan.style.color = "red"
             saveTasks(tasks)
             counter(tasks)
         }
     })
-   if (!oneTask.completion){
-        newSpan.style.color = "red"
+    if (!oneTask.completion){
+        taskSpan.style.color = "red"
         clone.checked = false
-       counter(tasks)
+        counter(tasks)
     } else {
-        newSpan.style.color = "green"
+        taskSpan.style.color = "green"
         clone.checked = true
-       counter(tasks)
+        counter(tasks)
     }
 
-    newSpan.appendChild(clone)
+    checkboxTaskNoteDiv.appendChild(clone)
 
-    return newDiv
+    // výpis názvu úkolu a jeho index
+    let orderTask = numberForTask(tasks, oneTask.id)
+    taskSpan.textContent = `${orderTask + 1}. ${oneTask.task} `
+    checkboxTaskNoteDiv.appendChild(taskSpan)
+
+    //výpis poznámky k úkolu
+    noteSpan.textContent = `pozn.: ${oneTask.note}`
+    noteSpan.classList.add("note-for-task")
+    checkboxTaskNoteDiv.appendChild(noteSpan)
+
+    container.appendChild(deleteEditButtonDiv)
+    container.appendChild(checkboxTaskNoteDiv)
+
+    return container
+
 }
 
 /**

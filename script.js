@@ -45,6 +45,7 @@ myForm.addEventListener("submit", function (event){
         tasks.push({
             id: uuidv4(),
             task: event.target.elements.insertTask.value,
+            note: event.target.elements.noteForTask.value || "neuvedena",
             completion: myCheckbox.checked
         })
 
@@ -69,6 +70,7 @@ myForm.addEventListener("submit", function (event){
 
         counter(tasks)
         event.target.elements.insertTask.value = ""
+        event.target.elements.noteForTask.value = ""
         saveTasks(tasks)
     }
 })
