@@ -1,6 +1,5 @@
 .to-do-list-one .first-delete-button, .to-do-list-two .first-delete-button, .to-do-list-three .first-delete-button, .filtered-tasks-one .first-delete-button,
 .filtered-tasks-two .first-delete-button, .filtered-tasks-three .first-delete-button {
-    margin-bottom: 2px;
     margin-right: 20px;
     background: #DC3545;
     color: white;
@@ -10,6 +9,11 @@
     display: block;
     width: 70px;
     visibility: unset;
+}
+
+.to-do-list-one .first-delete-button:hover, .to-do-list-two .first-delete-button:hover, .to-do-list-three .first-delete-button:hover, .filtered-tasks-one .first-delete-button:hover,
+.filtered-tasks-two .first-delete-button:hover, .filtered-tasks-three .first-delete-button:hover  {
+    background: #c22323;
 }
 
 .first-delete-button-visibility {
@@ -25,7 +29,6 @@
 
 .to-do-list-one .delete-button, .to-do-list-two .delete-button, .to-do-list-three .delete-button, .filtered-tasks-one .delete-button,
 .filtered-tasks-two .delete-button, .filtered-tasks-three .delete-button {
-    margin-bottom: 2px;
     margin-right: 20px;
     background: #DC3545;
     color: white;
@@ -41,8 +44,8 @@
     background: #c22323;
 }
 
-.to-do-list-one .edit-button, .to-do-list-two .edit-button, .to-do-list-three .edit-button, .filtered-tasks-one .edit-button,
-.filtered-tasks-two .edit-button, .filtered-tasks-three .edit-button {
+.to-do-list-one .edit-link-button, .to-do-list-two .edit-link-button, .to-do-list-three .edit-link-button, .filtered-tasks-one .edit-link-button,
+.filtered-tasks-two .edit-link-button, .filtered-tasks-three .edit-link-button {
     margin-bottom: 2px;
     margin-right: 20px;
     background: #0DCAF1;
@@ -52,10 +55,12 @@
     font-size: 0.75rem;
     display: block;
     width: 70px;
+    text-align: center;
+    text-decoration: none;
 }
 
-.to-do-list-one .edit-button:hover, .to-do-list-two .edit-button:hover, .to-do-list-three .edit-button:hover, .filtered-tasks-one .edit-button:hover,
-.filtered-tasks-two .edit-button:hover, .filtered-tasks-three .edit-button:hover  {
+.to-do-list-one .edit-link-button:hover, .to-do-list-two .edit-link-button:hover, .to-do-list-three .edit-link-button:hover, .filtered-tasks-one .edit-link-button:hover,
+.filtered-tasks-two .edit-link-button:hover, .filtered-tasks-three .edit-link-button:hover  {
     background: #0d9cbb;
 }
 
@@ -74,7 +79,7 @@
 .html-structure {
     display: flex;
     justify-content: flex-start;
-    align-items: stretch;
+    align-items: center;
     flex-direction: row;
     align-content: center;
     margin-bottom: 10px;

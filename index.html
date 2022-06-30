@@ -11,15 +11,14 @@
 </head>
 <body>
 
-    <header class="container bg-secondary p-2 text-white text-center rounded-bottom">
+    <header class="container bg-warning p-2 text-white text-center rounded-bottom">
         <h1>Databáze úkolů</h1>
     </header>
 
     <main>
-        <div class="container">
-            <div class="row inline-block">
+        <div class="container ps-0">
                 <form action="" id="task-form" class="form-control mt-2 border border-0">
-                    <div class="row">
+                    <div class="row inline-block">
                         <div class="col-12 col-md-4 mb-2 ">
                             <input type="text" placeholder="Vlož nový úkol" name="insertTask" class="form-control" required>
                         </div>
@@ -35,8 +34,6 @@
                         </div>
                     </div>
                 </form>
-            </div>
-
         </div>
 
         <div class="container mt-2 border-bottom pb-2">
@@ -46,11 +43,11 @@
                 </div>
                  <div class="col-12 col-md-5 col-xl-2 my-xl-auto">
                      <div>
-                         <input id="filter-true" class="filter-true form-check-input" type="checkbox">
+                         <input id="filter-true" class="filter-true form-check-input" type="checkbox" disabled>
                          <label for="filter-true" class="form-label my-auto">Vypsat splněné</label>
                      </div>
                      <div>
-                         <input id="filter-false" class="filter-false form-check-input" type="checkbox">
+                         <input id="filter-false" class="filter-false form-check-input" type="checkbox" disabled>
                          <label for="filter-false" class="form-label my-auto">Vypsat nesplněné</label>
                      </div>
                 </div>

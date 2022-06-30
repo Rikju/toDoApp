@@ -41,15 +41,16 @@ const generateHTMLStructure = function (oneTask){
     firstDeleteButton.classList.add("first-delete-button-visibility")
     const deleteButton = document.createElement("button")
     deleteButton.classList.add("delete-button")
-    const editButton = document.createElement("button")
-    editButton.classList.add("edit-button")
+    const editLinkButton = document.createElement("a")
+    editLinkButton.classList.add("edit-link-button")
 
     document.querySelector(".custom-heading").innerHTML = ""
     clearTaskInput()
 
     //nastavení editovacího tlačítka
-    editButton.textContent = "Editovat"
-    deleteEditButtonDiv.appendChild(editButton)
+    editLinkButton.textContent = "Editovat"
+    deleteEditButtonDiv.appendChild(editLinkButton)
+    editLinkButton.setAttribute("href",`static/edit.html#${oneTask.id}`)
 
     //nastavení mazacího tlačítka
     firstDeleteButton.textContent = "Vymazat"
@@ -67,7 +68,7 @@ const generateHTMLStructure = function (oneTask){
             toListAgain()
             if (tasks.length === 0){
                 let paragraph = document.createElement("p")
-                paragraph.textContent = "Źádný úkol. Vážně nemáš co na práci?"
+                paragraph.textContent = "Žádný úkol. Vážně nemáš co na práci?"
                 document.querySelector(".custom-heading").appendChild(paragraph)
             }
             counter(tasks)
@@ -116,7 +117,6 @@ const generateHTMLStructure = function (oneTask){
     container.appendChild(checkboxTaskNoteDiv)
 
     return container
-
 }
 
 /**
