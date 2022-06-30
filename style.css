@@ -68,7 +68,11 @@
     display: none;
 }
 
-.filtered-tasks-one .edit-button, .filtered-tasks-two .edit-button, .filtered-tasks-three .edit-button {
+.filtered-tasks-one .first-delete-button, .filtered-tasks-two .first-delete-button, .filtered-tasks-three .first-delete-button {
+    display: none;
+}
+
+.filtered-tasks-one .edit-link-button, .filtered-tasks-two .edit-link-button, .filtered-tasks-three .edit-link-button {
     display: none;
 }
 

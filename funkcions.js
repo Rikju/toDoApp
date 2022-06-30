@@ -44,7 +44,7 @@ const generateHTMLStructure = function (oneTask){
     const editLinkButton = document.createElement("a")
     editLinkButton.classList.add("edit-link-button")
 
-    document.querySelector(".custom-heading").innerHTML = ""
+    document.querySelector(".empty-heading").innerHTML = ""
     clearTaskInput()
 
     //nastavení editovacího tlačítka
@@ -69,7 +69,7 @@ const generateHTMLStructure = function (oneTask){
             if (tasks.length === 0){
                 let paragraph = document.createElement("p")
                 paragraph.textContent = "Žádný úkol. Vážně nemáš co na práci?"
-                document.querySelector(".custom-heading").appendChild(paragraph)
+                document.querySelector(".empty-heading").appendChild(paragraph)
             }
             counter(tasks)
         })
@@ -219,7 +219,7 @@ const clearTaskInput = function (){
             document.querySelector(".filtered-tasks-one").innerHTML = ""
             document.querySelector(".filtered-tasks-two").innerHTML = ""
             document.querySelector(".filtered-tasks-three").innerHTML = ""
-            document.querySelector(".custom-heading").innerHTML = ""
+            document.querySelector(".empty-heading").innerHTML = ""
         })
     })
 }

@@ -11,7 +11,7 @@ counter(tasks)
 if (tasks.length === 0){
     let paragraph = document.createElement("p")
     paragraph.textContent = "Žádný úkol. Vážně nemáš co na práci?"
-    document.querySelector(".custom-heading").appendChild(paragraph)
+    document.querySelector(".empty-heading").appendChild(paragraph)
 }
 
 for (let i = 0; i < 10 && i < tasks.length; i++){
@@ -49,7 +49,7 @@ myForm.addEventListener("submit", function (event){
             completion: myCheckbox.checked
         })
 
-        document.querySelector(".to-do-list-one").innerHTML = ""
+       document.querySelector(".to-do-list-one").innerHTML = ""
         document.querySelector(".to-do-list-two").innerHTML = ""
         document.querySelector(".to-do-list-three").innerHTML = ""
 
@@ -89,7 +89,7 @@ filter.addEventListener("input", function (event){
     document.querySelector(".filtered-tasks-one").innerHTML = ""
     document.querySelector(".filtered-tasks-two").innerHTML = ""
     document.querySelector(".filtered-tasks-three").innerHTML = ""
-    document.querySelector(".custom-heading").innerHTML = ""
+    document.querySelector(".filtered-heading").innerHTML = ""
 
     if(!weSearch){
 
@@ -113,10 +113,10 @@ filter.addEventListener("input", function (event){
         document.querySelector(".to-do-list-one").innerHTML = ""
         document.querySelector(".to-do-list-two").innerHTML = ""
         document.querySelector(".to-do-list-three").innerHTML = ""
-
+        document.querySelector(".filtered-heading").innerHTML = ""
         let heading = document.createElement("h3")
         heading.textContent = "Vyhledané úkoly"
-        document.querySelector(".custom-heading").appendChild(heading)
+        document.querySelector(".filtered-heading").appendChild(heading)
 
         for (let o = 0; o < 10 && o < ourResult.length; o++){
             const paragraph = generateHTMLStructure(ourResult[o])
