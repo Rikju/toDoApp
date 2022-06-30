@@ -36,6 +36,9 @@ const generateHTMLStructure = function (oneTask){
     const deleteEditButtonDiv = document.createElement("div")
     const taskSpan = document.createElement("span")
     const noteSpan = document.createElement("span")
+    const firstDeleteButton = document.createElement("button")
+    firstDeleteButton.classList.add("first-delete-button")
+    firstDeleteButton.classList.add("first-delete-button-visibility")
     const deleteButton = document.createElement("button")
     deleteButton.classList.add("delete-button")
     const editButton = document.createElement("button")
@@ -44,27 +47,32 @@ const generateHTMLStructure = function (oneTask){
     document.querySelector(".custom-heading").innerHTML = ""
     clearTaskInput()
 
-    //nastavení mazacího tlačítka
-    deleteButton.textContent = "Vymazat"
-    deleteEditButtonDiv.appendChild(deleteButton)
-
-    deleteButton.addEventListener("click",function (){
-        removeTask(tasks, oneTask.id)
-        saveTasks(tasks)
-        toListAgain()
-        if (tasks.length === 0){
-            let paragraph = document.createElement("p")
-            paragraph.textContent = "Databáze úkolů je prázdná. Vážně nemáš co na práci?"
-            document.querySelector(".custom-heading").appendChild(paragraph)
-        }
-        counter(tasks)
-    })
-
     //nastavení editovacího tlačítka
     editButton.textContent = "Editovat"
     deleteEditButtonDiv.appendChild(editButton)
 
+    //nastavení mazacího tlačítka
+    firstDeleteButton.textContent = "Vymazat"
+    deleteEditButtonDiv.appendChild(firstDeleteButton)
 
+    firstDeleteButton.addEventListener("click", function(){
+
+        firstDeleteButton.style.display = "none"
+        deleteButton.textContent = "Potvrď"
+        deleteEditButtonDiv.appendChild(deleteButton)
+
+        deleteButton.addEventListener("click",function (){
+            removeTask(tasks, oneTask.id)
+            saveTasks(tasks)
+            toListAgain()
+            if (tasks.length === 0){
+                let paragraph = document.createElement("p")
+                paragraph.textContent = "Źádný úkol. Vážně nemáš co na práci?"
+                document.querySelector(".custom-heading").appendChild(paragraph)
+            }
+            counter(tasks)
+        })
+    })
 
     // vytvoří clon checkboxu a přidá k jednotlivým úkolům
     const node = document.getElementById("true-false");

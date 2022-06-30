@@ -10,7 +10,7 @@ counter(tasks)
 // vždy vypsané úkoly
 if (tasks.length === 0){
     let paragraph = document.createElement("p")
-    paragraph.textContent = "Databáze úkolů je prázdná. Vážně nemáš co na práci?"
+    paragraph.textContent = "Žádný úkol. Vážně nemáš co na práci?"
     document.querySelector(".custom-heading").appendChild(paragraph)
 }
 

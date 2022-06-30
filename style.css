@@ -1,3 +1,28 @@
+.to-do-list-one .first-delete-button, .to-do-list-two .first-delete-button, .to-do-list-three .first-delete-button, .filtered-tasks-one .first-delete-button,
+.filtered-tasks-two .first-delete-button, .filtered-tasks-three .first-delete-button {
+    margin-bottom: 2px;
+    margin-right: 20px;
+    background: #DC3545;
+    color: white;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    display: block;
+    width: 70px;
+    visibility: unset;
+}
+
+.first-delete-button-visibility {
+    display: block;
+}
+
+
+.to-do-list-one .delete-button:hover, .to-do-list-two .delete-button:hover, .to-do-list-three .delete-button:hover, .filtered-tasks-one .delete-button:hover,
+.filtered-tasks-two .delete-button:hover, .filtered-tasks-three .delete-button:hover  {
+    background: #c22323;
+}
+
+
 .to-do-list-one .delete-button, .to-do-list-two .delete-button, .to-do-list-three .delete-button, .filtered-tasks-one .delete-button,
 .filtered-tasks-two .delete-button, .filtered-tasks-three .delete-button {
     margin-bottom: 2px;
@@ -34,6 +59,14 @@
     background: #0d9cbb;
 }
 
+.filtered-tasks-one .delete-button, .filtered-tasks-two .delete-button, .filtered-tasks-three .delete-button {
+    display: none;
+}
+
+.filtered-tasks-one .edit-button, .filtered-tasks-two .edit-button, .filtered-tasks-three .edit-button {
+    display: none;
+}
+
 .visibility {
     display: none;
 }
@@ -49,15 +82,6 @@
 
 #true-false {
     margin-right: 8px;
-}
-
-
-.filtered-tasks-one .delete-button, .filtered-tasks-two .delete-button, .filtered-tasks-three .delete-button {
-    display: none;
-}
-
-.filtered-tasks-one .edit-button, .filtered-tasks-two .edit-button, .filtered-tasks-three .edit-button {
-    display: none;
 }
 
 .note-for-task {
