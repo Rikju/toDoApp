@@ -8,26 +8,8 @@ const tasks = getSavedTasks()
 counter(tasks)
 
 // vždy vypsané úkoly
-if (tasks.length === 0){
-    let paragraph = document.createElement("p")
-    paragraph.textContent = "Žádný úkol. Vážně nemáš co na práci?"
-    document.querySelector(".empty-heading").appendChild(paragraph)
-}
 
-for (let i = 0; i < 10 && i < tasks.length; i++){
-    const oneTaskHTML = generateHTMLStructure(tasks[i])
-    document.querySelector(".to-do-list-one").appendChild(oneTaskHTML)
-}
-
-for (let j = 10; j < 20 && j < tasks.length; j++){
-    const oneTaskHTML = generateHTMLStructure(tasks[j])
-    document.querySelector(".to-do-list-two").appendChild(oneTaskHTML)
-}
-
-for (let k = 20; k < 30 && k < tasks.length; k++){
-    const oneTaskHTML = generateHTMLStructure(tasks[k])
-    document.querySelector(".to-do-list-three").appendChild(oneTaskHTML)
-}
+toListAgain()
 
 /**
  * Odeslání formuláře do ls pomocí proměnné tasks
@@ -134,6 +116,80 @@ filter.addEventListener("input", function (event){
         }
     }
 })
+
+/**
+ * Filtrování na splněné nebo nesplněné úkoly
+ */
+
+const filterTrue = document.querySelector(".filter-true")
+const filterFalse = document.querySelector(".filter-false")
+
+filterTrue.addEventListener("click",function (event){
+    let weCheck = event.target.checked
+
+    if (weCheck === true){
+        let resultCheckTrue = tasks.filter(function (checkTask){
+            return checkTask.completion
+        })
+
+        document.querySelector(".to-do-list-one").innerHTML = ""
+        document.querySelector(".to-do-list-two").innerHTML = ""
+        document.querySelector(".to-do-list-three").innerHTML = ""
+
+        for (let u = 0; u < 10 && u < resultCheckTrue.length; u++){
+            const oneTaskHTML = generateHTMLStructure(resultCheckTrue[u])
+            document.querySelector(".to-do-list-one").appendChild(oneTaskHTML)
+        }
+        for (let v = 10; v < 20 && v < resultCheckTrue.length; v++){
+            const oneTaskHTML = generateHTMLStructure(resultCheckTrue[v])
+            document.querySelector(".to-do-list-two").appendChild(oneTaskHTML)
+        }
+
+        for (let w = 20; w < 30 && w < resultCheckTrue.length; w++) {
+            const oneTaskHTML = generateHTMLStructure(resultCheckTrue[w])
+            document.querySelector(".to-do-list-three").appendChild(oneTaskHTML)
+        }
+
+    } else {
+        toListAgain()
+    }
+})
+
+filterFalse.addEventListener("click",function (event){
+    let testCheck = event.target.checked
+    if (testCheck === true){
+        let resultCheckFalse = tasks.filter(function (checkTask){
+            return !checkTask.completion
+        })
+
+        document.querySelector(".to-do-list-one").innerHTML = ""
+        document.querySelector(".to-do-list-two").innerHTML = ""
+        document.querySelector(".to-do-list-three").innerHTML = ""
+
+        for (let u = 0; u < 10 && u < resultCheckFalse.length; u++){
+            const oneTaskHTML = generateHTMLStructure(resultCheckFalse[u])
+            document.querySelector(".to-do-list-one").appendChild(oneTaskHTML)
+        }
+        for (let v = 10; v < 20 && v < resultCheckFalse.length; v++){
+            const oneTaskHTML = generateHTMLStructure(resultCheckFalse[v])
+            document.querySelector(".to-do-list-two").appendChild(oneTaskHTML)
+        }
+
+        for (let w = 20; w < 30 && w < resultCheckFalse.length; w++) {
+            const oneTaskHTML = generateHTMLStructure(resultCheckFalse[w])
+            document.querySelector(".to-do-list-three").appendChild(oneTaskHTML)
+        }
+
+    } else {
+        toListAgain()
+    }
+})
+
+const filterAll = document.querySelector("#filter-all")
+filterAll.addEventListener("click",function (event){
+    toListAgain()
+})
+
 
 
 

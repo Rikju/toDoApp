@@ -89,13 +89,17 @@
     margin-bottom: 10px;
 }
 
+.html-structure.hide {
+    display: none;
+}
+
 #true-false {
     margin-right: 8px;
 }
 
 .note-for-task {
     display: block;
-    color: rgb(108,117,146);
+    color: rgb(108, 117, 146);
     font-style: italic;
 }
 
@@ -104,4 +108,9 @@
     color: #0D6EFD;
     text-align: left;
 }
+
+.custom-text {
+    font-size: 14px;
+}
+
 

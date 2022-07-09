@@ -185,22 +185,32 @@ const counter = function (tasksList){
         let paragraph = document.createElement("p")
         paragraph.textContent = `Zbývá: ${leftTask.length} úkolů (celkový počet: ${tasks.length} / max.: 30)`
         paragraph.classList.add("summary-center")
+        paragraph.style.color = "#198754"
         document.querySelector(".summary").appendChild(paragraph)
     } else if (leftTask.length === 1){
         let paragraph = document.createElement("p")
         paragraph.textContent = `Zbývá: ${leftTask.length} úkol (celkový počet: ${tasks.length} / max.: 30)`
         paragraph.classList.add("summary-center")
+        paragraph.style.color = "#0D6EFD"
         document.querySelector(".summary").appendChild(paragraph)
     } else if (leftTask.length > 1 && leftTask.length < 5){
         let paragraph = document.createElement("p")
         paragraph.textContent = `Zbývá: ${leftTask.length} úkoly (celkový počet: ${tasks.length} / max.: 30)`
         paragraph.classList.add("summary-center")
+        paragraph.style.color = "#0D6EFD"
         document.querySelector(".summary").appendChild(paragraph)
     } else {
         let paragraph = document.createElement("p")
         paragraph.textContent = `Zbývá: ${leftTask.length} úkolů (celkový počet: ${tasks.length} / max.: 30)`
         paragraph.classList.add("summary-center")
         document.querySelector(".summary").appendChild(paragraph)
+        if (leftTask.length >= 5 && leftTask.length < 10){
+            paragraph.style.color = "#0D6EFD"
+        } else if (leftTask.length >= 10 && leftTask.length < 20) {
+            paragraph.style.color = "#FFC107"
+        } else {
+            paragraph.style.color = "#DC3545"
+        }
     }
 }
 
@@ -223,5 +233,4 @@ const clearTaskInput = function (){
         })
     })
 }
-
 
