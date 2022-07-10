@@ -11,16 +11,16 @@
 </head>
 <body>
 
-    <header class="container bg-warning p-2 text-white text-center rounded-bottom">
-        <h1>Databáze úkolů</h1>
+    <header class="container bg-warning p-1 text-white text-center rounded-bottom">
+        <h2>Databáze úkolů</h2>
     </header>
 
     <main>
         <div class="container ps-0">
-                <form action="" id="task-form" class="form-control mt-2 border border-0">
+                <form action="" id="task-form" class="form-control mt-1 border border-0">
                     <div class="row inline-block">
-                        <div class="col-12 col-md-4 mb-2 ">
-                            <input type="text" placeholder="Vlož nový úkol" name="insertTask" class="form-control" required>
+                        <div class="col-12 col-md-4 mb-1">
+                            <input type="text" placeholder="Vlož nový úkol" name="insertTask" class="form-control test" required>
                         </div>
                         <div class="col-12 col-md-4">
                             <input type="text" placeholder="Poznámka k úkolu" name="noteForTask" class="form-control">
@@ -36,22 +36,22 @@
                 </form>
         </div>
 
-        <div class="container mt-2 border-bottom pb-2">
+        <div class="container mt-1 border-bottom pb-1">
             <div class="row my-md-auto my-auto">
                 <div class="col-12 col-md-5 col-xl-3 my-auto">
-                    <input id="find-task" class="form-control" placeholder="Vyhledej úkol">
+                    <input name="filterTask" id="find-task" class="form-control" placeholder="Vyhledej úkol">
                 </div>
                  <div class="col-12 col-md-5 col-xl-2 my-xl-auto custom-text">
                      <div>
-                         <input name="true-false" id="filter-all" class="filter-all form-check-input" type="radio" checked>
+                         <input name="true-false-radio" id="filter-all" class="filter-all form-check-input" type="radio" checked>
                          <label for="filter-all" class="form-label my-auto">Všechny úkoly</label>
                      </div>
                      <div>
-                         <input name="true-false" id="filter-true" class="filter-true form-check-input" type="radio">
+                         <input name="true-false-radio" id="filter-true" class="filter-true form-check-input" type="radio">
                          <label for="filter-true" class="form-label my-auto">Vypsat splněné</label>
                      </div>
                      <div>
-                         <input name="true-false" id="filter-false" class="filter-false form-check-input" type="radio">
+                         <input name="true-false-radio" id="filter-false" class="filter-false form-check-input" type="radio">
                          <label for="filter-false" class="form-label my-auto">Vypsat nesplněné</label>
                      </div>
                 </div>
@@ -65,26 +65,26 @@
             <div class="row">
                 <div class="empty-heading mt-2"></div>
                 <div class="col-12 col-sm-6 col-xl-4">
-                    <div class="to-do-list-one true-false-checkbox py-3"></div>
+                    <div class="to-do-list-one true-false-checkbox py-2"></div>
                 </div>
                 <div class="col-12 col-sm-6 col-xl-4">
-                    <div class="to-do-list-two true-false-checkbox py-3" ></div>
+                    <div class="to-do-list-two true-false-checkbox py-2" ></div>
                 </div>
                 <div class="col-12 col-sm-6 col-xl-4">
-                    <div class="to-do-list-three true-false-checkbox py-3" ></div>
+                    <div class="to-do-list-three true-false-checkbox py-2" ></div>
                 </div>
             </div>
 
             <div class="row">
                 <div class="filtered-heading"></div>
                 <div class="col-12 col-sm-6 col-xl-4">
-                    <div class="filtered-tasks-one py-3"></div>
+                    <div class="filtered-tasks-one py-2"></div>
                 </div>
                 <div class="col-12 col-sm-6 col-xl-4">
-                    <div class="filtered-tasks-two py-3" ></div>
+                    <div class="filtered-tasks-two py-2" ></div>
                 </div>
                 <div class="col-12 col-sm-6 col-xl-4">
-                    <div class="filtered-tasks-three py-3" ></div>
+                    <div class="filtered-tasks-three py-2" ></div>
                 </div>
             </div>
         </div>

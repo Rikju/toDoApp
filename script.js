@@ -8,8 +8,20 @@ const tasks = getSavedTasks()
 counter(tasks)
 
 // vždy vypsané úkoly
+for (let i = 0; i < 10 && i < tasks.length; i++){
+    const oneTaskHTML = generateHTMLStructure(tasks[i])
+    document.querySelector(".to-do-list-one").appendChild(oneTaskHTML)
+}
 
-toListAgain()
+for (let j = 10; j < 20 && j < tasks.length; j++){
+    const oneTaskHTML = generateHTMLStructure(tasks[j])
+    document.querySelector(".to-do-list-two").appendChild(oneTaskHTML)
+}
+
+for (let k = 20; k < 30 && k < tasks.length; k++){
+    const oneTaskHTML = generateHTMLStructure(tasks[k])
+    document.querySelector(".to-do-list-three").appendChild(oneTaskHTML)
+}
 
 /**
  * Odeslání formuláře do ls pomocí proměnné tasks
@@ -121,8 +133,13 @@ filter.addEventListener("input", function (event){
  * Filtrování na splněné nebo nesplněné úkoly
  */
 
+const filterAll = document.querySelector("#filter-all")
 const filterTrue = document.querySelector(".filter-true")
 const filterFalse = document.querySelector(".filter-false")
+
+filterAll.addEventListener("click",function (){
+    toListAgain()
+})
 
 filterTrue.addEventListener("click",function (event){
     let weCheck = event.target.checked
@@ -181,18 +198,26 @@ filterFalse.addEventListener("click",function (event){
         }
 
     } else {
+        getSavedTasks()
         toListAgain()
     }
 })
 
-const filterAll = document.querySelector("#filter-all")
-filterAll.addEventListener("click",function (event){
+/**
+ * Pokud zadáváme nový úkol, vymažeme html strukturu pro filtrované výsledky (input však zůstane plný)
+ */
+let deleteFilteredIfCreateNewTask = document.querySelector(".test")
+deleteFilteredIfCreateNewTask.addEventListener("input", function (){
+    document.querySelector(".filtered-tasks-one").innerHTML = ""
+    document.querySelector(".filtered-tasks-two").innerHTML = ""
+    document.querySelector(".filtered-tasks-three").innerHTML = ""
+    document.querySelector(".filtered-heading").innerHTML = ""
+
+    document.querySelector(".to-do-list-one").innerHTML = ""
+    document.querySelector(".to-do-list-two").innerHTML = ""
+    document.querySelector(".to-do-list-three").innerHTML = ""
+
+    getSavedTasks()
     toListAgain()
+
 })
-
-
-
-
-
-
-

@@ -22,6 +22,10 @@ const saveTasks = function (oneTask){
     localStorage.setItem("tasks", JSON.stringify(oneTask))
 }
 
+const delTasks = function (oneTask){
+    localStorage.setItem("delTasks", JSON.stringify(oneTask))
+}
+
 /**
  * Generování HTML struktury, kterou umístíme do stránky po kliknutí
  * na tlačítko "Vypiš" + použijeme ji také pro vypsání nových informací z ls,
@@ -65,6 +69,11 @@ const generateHTMLStructure = function (oneTask){
         deleteButton.addEventListener("click",function (){
             removeTask(tasks, oneTask.id)
             saveTasks(tasks)
+            document.querySelector(".filtered-tasks-one").innerHTML = ""
+            document.querySelector(".filtered-tasks-two").innerHTML = ""
+            document.querySelector(".filtered-tasks-three").innerHTML = ""
+            document.querySelector(".filtered-heading").innerHTML = ""
+            // location.reload()
             toListAgain()
             if (tasks.length === 0){
                 let paragraph = document.createElement("p")
@@ -123,7 +132,6 @@ const generateHTMLStructure = function (oneTask){
  * Podle ID najdeme index daného úkolu;
  * pomocí splice ho odstraníme
  */
-
 const removeTask = function (ourTasks, id){
     const index = ourTasks.findIndex(function (taskWantToCheck){
         return taskWantToCheck.id === id
@@ -233,4 +241,3 @@ const clearTaskInput = function (){
         })
     })
 }
-
